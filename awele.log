@@ -1,0 +1,34 @@
+Mémoire totale : 2,0 GiB
+Instanciation du bot "Random"
+2 classes ont été trouvées
+class awele.bot.competitor.negamax.NegaMaxBot
+class awele.bot.competitor.minmax.MinMaxBot
+
+Bot 1/2
+Classe : awele.bot.competitor.negamax.NegaMaxBot
+Instanciation du bot "NegaMax"
+Nom du bot : NegaMax
+Auteur(s) : Nicolas ROBERT
+Temps d'apprentissage : 00:00:00.000
+Durée d'une prise de décision : 00:00:00.049
+Usage mémoire : 0 B
+Usage mémoire maximum : 13,5 MiB
+
+Bot 2/2
+Classe : awele.bot.competitor.minmax.MinMaxBot
+Instanciation du bot "MinMax"
+Nom du bot : MinMax
+Auteur(s) : Alexandre Blansché
+Temps d'apprentissage : 00:00:00.000
+Durée d'une prise de décision : 00:00:00.038
+Usage mémoire : 1,0 KiB
+Usage mémoire maximum : 10,0 MiB
+
+2 bots ont été instanciés
+Durée du chargement : 00:00:03.960
+Mémoire utilisée : 1,5 MiB
+
+Que le championnat commence !
+
+Affrontement 1/1
+NegaMax vs. MinMax
