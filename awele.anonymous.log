@@ -9,24 +9,39 @@ Classe : awele.bot.competitor.negamax.NegaMaxBot
 Instanciation du bot "NegaMax"
 Nom du bot : NegaMax
 Temps d'apprentissage : 00:00:00.000
-Durée d'une prise de décision : 00:00:00.049
+Durée d'une prise de décision : 00:00:00.013
 Usage mémoire : 0 B
-Usage mémoire maximum : 13,5 MiB
+Usage mémoire maximum : 51,0 MiB
 
 Bot 2/2
 Classe : awele.bot.competitor.minmax.MinMaxBot
 Instanciation du bot "MinMax"
 Nom du bot : MinMax
 Temps d'apprentissage : 00:00:00.000
-Durée d'une prise de décision : 00:00:00.038
+Durée d'une prise de décision : 00:00:00.010
 Usage mémoire : 1,0 KiB
-Usage mémoire maximum : 10,0 MiB
+Usage mémoire maximum : 50,0 MiB
 
 2 bots ont été instanciés
-Durée du chargement : 00:00:03.960
+Durée du chargement : 00:00:00.786
 Mémoire utilisée : 1,5 MiB
 
 Que le championnat commence !
 
 Affrontement 1/1
 NegaMax vs. MinMax
+Score : 1.5 - 1.47
+NegaMax a gagné
+Nombre de coups joués : 121.985 par match
+Durée : 00:00:01.058 par match
+Mémoire utilisée : 1,4 MiB
+
+Durée du championnat : 00:03:31.703
+
+Scores finaux :
+NegaMax : 1.5
+MinMax : 1.47
+
+Rangs :
+1. NegaMax : 1.5
+2. MinMax : 1.47
