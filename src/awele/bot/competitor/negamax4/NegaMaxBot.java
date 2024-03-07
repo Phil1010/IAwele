@@ -1,4 +1,4 @@
-package awele.bot.competitor.negamax;
+package awele.bot.competitor.negamax4;
 
 import awele.bot.CompetitorBot;
 import awele.core.Board;
@@ -11,14 +11,14 @@ import awele.core.InvalidBotException;
 public class NegaMaxBot extends CompetitorBot
 {
     /** Profondeur maximale */
-    private static final int MAX_DEPTH = 6; // max = 6
+    private static final int MAX_DEPTH = 9; // max = 9
 	
     /**
      * @throws InvalidBotException
      */
     public NegaMaxBot() throws InvalidBotException
     {
-        this.setBotName ("NegaMax");
+        this.setBotName ("NegaMax élagage alpha beta fail-hard");
         this.addAuthor ("Nicolas ROBERT");
     }
 

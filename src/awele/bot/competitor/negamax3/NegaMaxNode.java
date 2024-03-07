@@ -1,4 +1,4 @@
-package awele.bot.competitor.negamax;
+package awele.bot.competitor.negamax3;
 
 import awele.core.Board;
 import awele.core.InvalidBotException;
@@ -75,7 +75,10 @@ public abstract class NegaMaxNode
                     if (depth > 0)
                     {
                         alpha = this.alpha (this.evaluation, alpha);
-                        beta = this.beta (this.evaluation, beta);
+                        // beta = this.beta (this.evaluation, beta);
+                        if (alpha >= beta)
+                            break;
+
                     }                        
                 }
                 catch (InvalidBotException e)

@@ -1,4 +1,4 @@
-package awele.bot.competitor.negamax;
+package awele.bot.competitor.minmax2;
 
 import awele.core.Board;
 import awele.core.InvalidBotException;
@@ -7,7 +7,7 @@ import awele.core.InvalidBotException;
  * @author Alexandre Blansché
  * Noeud d'un arbre MinMax
  */
-public abstract class NegaMaxNode
+public abstract class MinMaxNode
 {
     /** Numéro de joueur de l'IA */
     private static int player;
@@ -28,7 +28,7 @@ public abstract class NegaMaxNode
      * @param alpha Le seuil pour la coupe alpha
      * @param beta Le seuil pour la coupe beta
      */
-    public NegaMaxNode(Board board, int depth, double alpha, double beta, int color)
+    public MinMaxNode (Board board, int depth, double alpha, double beta)
     {
         /* On crée un tableau des évaluations des coups à jouer pour chaque situation possible */
         this.decision = new double [Board.NB_HOLES];
@@ -53,27 +53,30 @@ public abstract class NegaMaxNode
                     if ((score < 0) ||
                             (copy.getScore (Board.otherPlayer (copy.getCurrentPlayer ())) >= 25) ||
                             (copy.getNbSeeds () <= 6))
-                        this.decision [i] = color * this.diffScore (copy);
+                        this.decision [i] = this.diffScore (copy);
                     /* Sinon, on explore les coups suivants */
                     else
                     {
                         /* Si la profondeur maximale n'est pas atteinte */
-                        if (depth < NegaMaxNode.maxDepth)
+                        if (depth < MinMaxNode.maxDepth)
                         {
                             /* On construit le noeud suivant */
-                            NegaMaxNode child = this.getNextNode (copy, depth + 1, - beta, - alpha, - color);
+                            MinMaxNode child = this.getNextNode (copy, depth + 1, alpha, beta);
                             /* On récupère l'évaluation du noeud fils */
-                            this.decision [i] = - child.getEvaluation ();
+                            this.decision [i] = child.getEvaluation ();
                         }
                         /* Sinon (si la profondeur maximale est atteinte), on évalue la situation actuelle */
                         else
-                            this.decision [i] = color * this.diffScore (copy);
+                            this.decision [i] = this.diffScore (copy);
                     }
                     /* L'évaluation courante du noeud est mise à jour, selon le type de noeud (MinNode ou MaxNode) */
                     this.evaluation = this.minmax (this.decision [i], this.evaluation);
                     /* Coupe alpha-beta */ 
                     if (depth > 0)
                     {
+                        if (alphabeta(this.getEvaluation(), alpha, beta))
+                            break;
+
                         alpha = this.alpha (this.evaluation, alpha);
                         beta = this.beta (this.evaluation, beta);
                     }                        
@@ -93,13 +96,13 @@ public abstract class NegaMaxNode
      */
     protected static void initialize (Board board, int maxDepth)
     {
-        NegaMaxNode.maxDepth = maxDepth;
-        NegaMaxNode.player = board.getCurrentPlayer ();
+        MinMaxNode.maxDepth = maxDepth;
+        MinMaxNode.player = board.getCurrentPlayer ();
     }
 
     private int diffScore (Board board)
     {
-        return board.getScore (NegaMaxNode.player) - board.getScore (Board.otherPlayer (NegaMaxNode.player));
+        return board.getScore (MinMaxNode.player) - board.getScore (Board.otherPlayer (MinMaxNode.player));
     }
 
     /**
@@ -143,7 +146,7 @@ public abstract class NegaMaxNode
      * @param beta Le seuil pour la coupe beta
      * @return Un noeud (MinNode ou MaxNode) du niveau suivant
      */
-    protected abstract NegaMaxNode getNextNode (Board board, int depth, double alpha, double beta, int color);
+    protected abstract MinMaxNode getNextNode (Board board, int depth, double alpha, double beta);
 
     /**
      * L'évaluation du noeud

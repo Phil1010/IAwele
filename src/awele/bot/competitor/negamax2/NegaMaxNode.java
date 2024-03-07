@@ -1,4 +1,4 @@
-package awele.bot.competitor.negaMax3;
+package awele.bot.competitor.negamax2;
 
 import awele.core.Board;
 import awele.core.InvalidBotException;
@@ -57,7 +57,7 @@ public class NegaMaxNode {
                     copy = board.playMoveSimulationBoard(myTour, decisionTemp);
                     /* Si la partie est terminée, on évalue la situation */
                     if ((copy.getScore(myTour) < 0) || (copy.getScore(opponentTour) >= 25)
-                            || (copy.getNbSeeds() <= 6) || !(depth < NegaMaxNode.maxDepth))
+                                || (copy.getNbSeeds() <= 6) || !(depth < NegaMaxNode.maxDepth))
                         this.decision[i] = scoreEntireBoardById(copy, myTour, opponentTour);
                         /* Sinon, on explore les coups suivants */
                     else {

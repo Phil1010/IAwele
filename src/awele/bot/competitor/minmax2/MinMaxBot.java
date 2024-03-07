@@ -1,6 +1,7 @@
-package awele.bot.competitor.negamax;
+package awele.bot.competitor.minmax2;
 
 import awele.bot.CompetitorBot;
+import awele.bot.DemoBot;
 import awele.core.Board;
 import awele.core.InvalidBotException;
 
@@ -8,17 +9,17 @@ import awele.core.InvalidBotException;
  * @author Alexandre Blansché
  * Bot qui prend ses décisions selon le MinMax
  */
-public class NegaMaxBot extends CompetitorBot
+public class MinMaxBot extends CompetitorBot
 {
     /** Profondeur maximale */
-    private static final int MAX_DEPTH = 6; // max = 6
+    private static final int MAX_DEPTH = 7;
 	
     /**
      * @throws InvalidBotException
      */
-    public NegaMaxBot() throws InvalidBotException
+    public MinMaxBot () throws InvalidBotException
     {
-        this.setBotName ("NegaMax");
+        this.setBotName ("MinMax avec élagage alpha beta");
         this.addAuthor ("Nicolas ROBERT");
     }
 
@@ -44,7 +45,7 @@ public class NegaMaxBot extends CompetitorBot
     @Override
     public double [] getDecision (Board board)
     {
-        NegaMaxNode.initialize (board, NegaMaxBot.MAX_DEPTH);
+        MinMaxNode.initialize (board, MinMaxBot.MAX_DEPTH);
         return new MaxNode(board).getDecision ();
     }
 

@@ -1,4 +1,4 @@
-package awele.bot.competitor.negaMax3;
+package awele.bot.competitor.negamax2;
 
 import awele.bot.CompetitorBot;
 import awele.core.Board;
@@ -12,7 +12,7 @@ public class NegaMaxBot extends CompetitorBot {
     /**
      * Profondeur maximale
      */
-    private static final int MAX_DEPTH = 9;
+    private static final int MAX_DEPTH = 9; // MAX = 9
 
     /**
      * @throws InvalidBotException

@@ -12,7 +12,7 @@ import awele.core.InvalidBotException;
 public class MinMaxBot extends CompetitorBot
 {
     /** Profondeur maximale */
-    private static final int MAX_DEPTH = 5;
+    private static final int MAX_DEPTH = 6; // MAX = 6
 	
     /**
      * @throws InvalidBotException
